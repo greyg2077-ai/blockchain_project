@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFund - Decentralized Education Crowdfunding</title>
+  <meta name="description"
+    content="Support education through blockchain-powered crowdfunding. Donate ETH, earn EDU tokens.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">
+          <span class="logo-icon">🎓</span>
+          <span class="logo-text">EduFund</span>
+        </div>
+        <div class="wallet-section">
+          <div id="networkBadge" class="network-badge hidden">
+            <span class="network-dot"></span>
+            <span id="networkName">Hardhat</span>
+          </div>
+          <button id="connectBtn" class="btn btn-primary">
+            <span class="btn-icon">🦊</span>
+            Connect Wallet
+          </button>
+          <div id="walletInfo" class="wallet-info hidden">
+            <span id="walletAddress" class="wallet-address"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Fund Education,<br>
+              <span class="gradient-text">Earn Rewards</span>
+            </h1>
+            <p class="hero-subtitle">
+              Support educational campaigns and receive EDU tokens as a reward for your contribution.
+              <strong>1 ETH = 100 EDU</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard -->
+      <section id="dashboard" class="dashboard hidden">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">💰</div>
+              <div class="stat-content">
+                <span class="stat-label">ETH Balance</span>
+                <span id="ethBalance" class="stat-value">0.00</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🎓</div>
+              <div class="stat-content">
+                <span class="stat-label">EDU Balance</span>
+                <span id="eduBalance" class="stat-value">0.00</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📊</div>
+              <div class="stat-content">
+                <span class="stat-label">Total Campaigns</span>
+                <span id="totalCampaigns" class="stat-value">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Create Campaign Section -->
+      <section id="createSection" class="create-section hidden">
+        <div class="container">
+          <div class="section-header">
+            <h2>Create Campaign</h2>
+            <p>Launch your educational fundraising campaign</p>
+          </div>
+          <form id="createForm" class="create-form">
+            <div class="form-group">
+              <label for="campaignTitle">Campaign Title</label>
+              <input type="text" id="campaignTitle" placeholder="e.g., Support STEM Education for Students" required>
+            </div>
+            <div class="form-group">
+              <label for="campaignDescription">Description</label>
+              <textarea id="campaignDescription" placeholder="Tell potential donors why this campaign is important..."
+                rows="3" required></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="campaignGoal">Goal (ETH)</label>
+                <input type="number" id="campaignGoal" placeholder="10" step="0.01" min="0.01" required>
+              </div>
+              <div class="form-group">
+                <label for="campaignDuration">Duration (Days)</label>
+                <input type="number" id="campaignDuration" placeholder="30" min="1" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large">
+              <span class="btn-icon">🚀</span>
+              Launch Campaign
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Campaigns Section -->
+      <section id="campaignsSection" class="campaigns-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Active Campaigns</h2>
+            <p>Browse and support educational initiatives</p>
+          </div>
+          <div id="campaignsGrid" class="campaigns-grid">
+            <!-- Campaign cards will be inserted here -->
+            <div class="empty-state">
+              <span class="empty-icon">📚</span>
+              <p>No campaigns yet. Connect your wallet to create one!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Transaction History Section -->
+      <section id="historySection" class="history-section hidden">
+        <div class="container">
+          <div class="section-header">
+            <h2>Transaction History</h2>
+            <p>Recent donations on the blockchain</p>
+          </div>
+          <div id="historyList" class="history-list">
+            <!-- History items will be inserted here -->
+            <div class="loading-history">Loading history...</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 EduFund. Built on Ethereum.</p>
+      </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+      <span id="toastMessage"></span>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <p id="loadingText">Processing transaction...</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
