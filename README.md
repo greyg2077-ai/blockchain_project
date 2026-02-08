@@ -7,21 +7,68 @@ We wanted to create a transparent way for students to get support. When someone 
 # Tech Stack
 Blockchain: Solidity & Hardhat
 
-Frontend: JavaScript (React), CSS
+Frontend: JavaScript , CSS
 
 Library: Ethers.js
 
 Wallet: MetaMask
 
-Network: Sepolia Testnet
+Network: Hardhat Local network
 
 # Features
-Connect Wallet: Easy login with MetaMask.
+Wallet Connection: Easy login with MetaMask integration.
 
-Dashboard: Check your current test ETH and EDU token balances.
+Dashboard: Real-time display of your ETH and EDU token balances.
 
-Create Campaign: Anyone can start a fund with a title, a goal in ETH, and a deadline.
+Create Campaign: Form to set a title, funding goal, and duration.
 
-Campaign Progress: Visual progress bars showing how much has been raised.
+Campaign Cards: Visual progress bars showing how much is raised vs. the goal.
 
-Rewards: Supporters get EDU tokens minted automatically to their wallets.
+Automated Rewards: Supporters get 100 EDU tokens minted for every 1 ETH donated.
+
+Secure Withdrawals: Campaign owners can withdraw funds only if the goal is reached.
+
+   # Project Structure
+contracts/:
+
+EduFund.sol: Main logic for campaigns, donations, and refunds.
+
+EduToken.sol: Our custom ERC-20 reward token.
+
+frontend/:
+
+index.html: The main UI.
+
+app.js: Connects the website to the blockchain using Ethers.js.
+
+config.js: Stores contract addresses (updated automatically after deploy).
+
+scripts/:
+
+deploy.js: Automation script to put our contracts on the network.
+
+test/:
+
+EduFund.test.js: 50+ lines of tests ensuring everything is secure.
+
+start test:   npx hardhat test
+
+   # Quick Start
+1. Setup Environment
+Bash
+# Install dependencies
+npm install
+2. Local Development
+Bash
+# Start a local blockchain
+npx hardhat node
+
+# In a new terminal, deploy contracts
+npx hardhat run scripts/deploy.js --network localhost
+
+Open frontend/index.html using Live Server.
+
+# OUR team 
+Kendebayev Nurassyl
+Asylzhan
+Mahmet
