@@ -146,7 +146,7 @@ contract EduFund {
         Campaign storage campaign = campaigns[_id];
         
         if (block.timestamp < campaign.deadline) revert CampaignStillActive();
-        if (campaign.amountCollected >= campaign.goal) revert GoalNotReached(); // Reusing error name or create GoalMet()
+        if (campaign.amountCollected >= campaign.goal) revert GoalNotReached(); 
         
         uint256 donatedAmount = donations[_id][msg.sender];
         if (donatedAmount == 0) revert ZeroDonation();
