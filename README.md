@@ -76,6 +76,6 @@ EduFund.pdf
 # OUR team 
 Kendebayev Nurassyl
 
-Asylzhan
+Assylzhan Shalmanov
 
-Mahmet
+Makhmet Demesh
