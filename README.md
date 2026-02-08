@@ -68,7 +68,14 @@ npx hardhat run scripts/deploy.js --network localhost
 
 Open frontend/index.html using Live Server.
 
+
+# Presentation
+EduFund.pdf
+
+
 # OUR team 
 Kendebayev Nurassyl
+
 Asylzhan
+
 Mahmet
